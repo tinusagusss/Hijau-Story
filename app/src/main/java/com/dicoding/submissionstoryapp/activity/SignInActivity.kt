@@ -2,12 +2,12 @@ package com.dicoding.submissionstoryapp.activity
 
 
 import android.content.ContentValues
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.submissionstoryapp.SharedPreferencesUtil
 import com.dicoding.submissionstoryapp.databinding.ActivitySignInBinding
 import com.dicoding.submissionstoryapp.network.AuthInterceptor
 import com.dicoding.submissionstoryapp.respon.LoginResponse
@@ -63,7 +63,7 @@ class SignInActivity : AppCompatActivity() {
                         )
                         Toast.makeText(
                             this@SignInActivity,
-                            "Registration Failed: ${message.message}",
+                            "Login Failed: ${message.message}",
                             Toast.LENGTH_LONG
                         ).show()
                     }
@@ -93,13 +93,10 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun saveLoginData(email: String, password: String, token: String) {
-        val sharedPref = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
-        with(sharedPref.edit()) {
-            putString("EMAIL", email)
-            putString("PASSWORD", password)
-            putString("TOKEN", token)
-            apply()
-        }
+        val sharedPreferencesUtil = SharedPreferencesUtil(this)
+        sharedPreferencesUtil.saveEmail(email)
+        sharedPreferencesUtil.savePassword(password)
+        sharedPreferencesUtil.saveToken(token)
     }
 }
 

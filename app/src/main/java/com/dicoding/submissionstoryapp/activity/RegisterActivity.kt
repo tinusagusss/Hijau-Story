@@ -59,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
                 } else {
                     response.errorBody()?.let {
                         val message: RegisterResponse = gson.fromJson(
-                            it!!.charStream(), RegisterResponse::class.java
+                            it.charStream(), RegisterResponse::class.java
                         )
                         Toast.makeText(
                             this@RegisterActivity,

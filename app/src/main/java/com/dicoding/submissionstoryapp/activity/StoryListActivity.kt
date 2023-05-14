@@ -1,6 +1,5 @@
 package com.dicoding.submissionstoryapp.activity
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -10,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.submissionstoryapp.MainViewModel
 import com.dicoding.submissionstoryapp.R
+import com.dicoding.submissionstoryapp.SharedPreferencesUtil
 import com.dicoding.submissionstoryapp.ViewModelFactory
 import com.dicoding.submissionstoryapp.adapter.LoadingStateAdapter
 import com.dicoding.submissionstoryapp.adapter.StoryListAdapter
@@ -23,7 +23,6 @@ class StoryListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityListStoryBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListStoryBinding.inflate(layoutInflater)
@@ -31,7 +30,6 @@ class StoryListActivity : AppCompatActivity() {
         supportActionBar?.title = "List of Stories"
 
         binding.rvListStory.layoutManager = LinearLayoutManager(this)
-
 
         getData()
     }
@@ -56,29 +54,44 @@ class StoryListActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_logout -> {
-                val sharedPreferences = getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
-                val editor = sharedPreferences.edit()
-                editor.clear()
-                editor.apply()
-
-                startActivity(Intent(this, SignInActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                })
+                logout()
                 true
             }
 
             R.id.action_maps -> {
-                startActivity(Intent(this, MapsActivity::class.java))
+                openMapsActivity()
                 true
             }
 
 
             R.id.add_photo -> {
-                startActivity(Intent(this, AddStoryActivity::class.java))
+                openAddStoryActivity()
                 true
             }
+
             else -> true
         }
+    }
+
+    private fun logout() {
+        val sharedPreferencesUtil = SharedPreferencesUtil(this)
+        sharedPreferencesUtil.clearData()
+
+        navigateToSignInActivity()
+    }
+
+    private fun openMapsActivity() {
+        startActivity(Intent(this, MapsActivity::class.java))
+    }
+
+    private fun openAddStoryActivity() {
+        startActivity(Intent(this, AddStoryActivity::class.java))
+    }
+
+    private fun navigateToSignInActivity() {
+        startActivity(Intent(this, SignInActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        })
     }
 
 }

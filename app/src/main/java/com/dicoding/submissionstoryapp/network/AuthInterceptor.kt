@@ -1,7 +1,8 @@
 package com.dicoding.submissionstoryapp.network
 
 import android.content.Context
-import com.dicoding.submissionstoryapp.BuildConfig
+import com.dicoding.submissionstoryapp.SharedPreferencesUtil
+import com.loopj.android.http.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -29,9 +30,10 @@ class AuthInterceptor(private val token: String) : Interceptor {
             .addInterceptor(loggingInterceptor)
             .build()
 
-        fun getApiService(context: Context?): ApiService {
-            val token = context?.getSharedPreferences("MY_PRE", Context.MODE_PRIVATE)
-                ?.getString("TOKEN", "") ?: ""
+        fun getApiService(context: Context): ApiService {
+            val sharedPreferencesUtil = SharedPreferencesUtil(context)
+            val token = sharedPreferencesUtil.getToken("")
+
 
             val authInterceptor = AuthInterceptor(token)
 
