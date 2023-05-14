@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Hijau Story App Final</string>
+    <string name="hijau_story">Hijau Story</string>
+    <string name="retry">coba lagi</string>
+
+    <string name="title_add_story">Add Story</string>
+    <string name="title_detail_story">Detail Story</string>
+
+    <string name="welcome_messages">Hello, %1$s! You have &lt;b>%2$d new messages&lt;/b>.</string>
+
+
+    <string name="lorem_100">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed massa velit, fringilla et feugiat sed, eleifend dignissim lectus. Etiam et nunc accumsan, hendrerit urna ut, hendrerit leo. Nullam gravida vehicula odio sed efficitur. Duis facilisis nibh ultricies aliquet vulputate. Sed eget neque urna. Phasellus pharetra tincidunt mauris sit amet dignissim. Cras pretium purus sit amet volutpat varius. Nunc interdum sapien tortor, ut condimentum urna interdum sit amet. Donec ex enim, accumsan nec ligula sed, elementum suscipit ante. Vivamus sollicitudin leo eu pharetra mollis. Nam massa libero, malesuada non sollicitudin vitae, rutrum in justo. Cras nisi augue, condimentum et nibh id.</string>
+    <string name="button_sign_in">Sign In To Your Account</string>
+</resources>

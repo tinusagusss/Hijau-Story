@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".activity.RegisterActivity">
+
+    <ImageView
+        android:id="@+id/img_rectangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/cv_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/rectangle" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_black"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/playfairdisplaysemibold"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/tv_sign_in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/playfairdisplayregular"
+                android:text="Create Your Account"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/playfairdisplayregular"
+                android:text="Your Name"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <com.dicoding.submissionstoryapp.customview.BasicEditTextCustomView
+                android:id="@+id/edt_name"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:ems="10"
+                android:hint="Enter Your Name"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/playfairdisplayregular"
+                android:text="Your Email"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <com.dicoding.submissionstoryapp.customview.EmailEditTxtCustomeView
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:ems="10"
+                android:hint="Enter Your Email"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/playfairdisplayregular"
+                android:text="Your Password"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <com.dicoding.submissionstoryapp.customview.BasicEditTextCustomView
+                android:id="@+id/edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:ems="10"
+                android:hint="Enter Your Password"
+                android:textColorHint="@color/white"
+                android:textSize="14sp"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Have an Account? " />
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:text="Login"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Register"
+        app:layout_constraintBottom_toBottomOf="@+id/cv_black"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
